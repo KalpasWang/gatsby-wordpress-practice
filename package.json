@@ -16,6 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@webdeveducation/wp-block-tools": "^1.1.21",
     "autoprefixer": "^10.4.15",
     "dotenv": "^16.3.1",
     "envalid": "^7.3.1",
