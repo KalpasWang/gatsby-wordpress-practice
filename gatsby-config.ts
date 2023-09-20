@@ -1,6 +1,6 @@
-import 'dotenv/config';
-import { cleanEnv, url } from 'envalid';
-import type { GatsbyConfig } from 'gatsby';
+import "dotenv/config";
+import { cleanEnv, url } from "envalid";
+import type { GatsbyConfig } from "gatsby";
 
 const env = cleanEnv(process.env, {
   WP_GRAPHQL_URL: url(),
@@ -8,8 +8,8 @@ const env = cleanEnv(process.env, {
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `gatsby-wordpress-practice`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `gogobuy`,
+    siteUrl: `https://gogobuy.vercel.app`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -17,22 +17,24 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     {
-      resolve: 'gatsby-source-wordpress',
+      resolve: "gatsby-source-graphql",
       options: {
+        typeName: "WooCommerce",
+        fieldName: "woocommerce",
         url: env.WP_GRAPHQL_URL,
       },
     },
-    'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-postcss',
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-postcss",
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'images',
-        path: './src/images/',
+        name: "images",
+        path: "./src/images/",
       },
-      __key: 'images',
+      __key: "images",
     },
   ],
 };
