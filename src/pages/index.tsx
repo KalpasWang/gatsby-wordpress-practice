@@ -8,7 +8,7 @@ export default function IndexPage({}: PageProps) {
   return (
     <Layout>
       <h1>Hello</h1>
-      <Button variant="destructive" size="lg">
+      <Button variant="default" size="lg">
         Hi
       </Button>
       <Products />
