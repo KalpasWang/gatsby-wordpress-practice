@@ -10,6 +10,12 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `gogobuy`,
     siteUrl: `https://gogobuy.vercel.app`,
+    description: `A GatsbyJS starter for WooCommerce`,
+    links: {
+      github: "https://github.com/gogobuy/gatsby-woocommerce",
+      twitter: "https://twitter.com/gogobuy",
+    },
+    ogImage: "",
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
