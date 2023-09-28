@@ -1,8 +1,64 @@
+import { MainNavItem } from "@/types";
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button, buttonVariants } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 type Props = {};
 
+const mainNavItems: MainNavItem[] = [
+  {
+    title: "關於我們",
+    items: [
+      {
+        title: "Products",
+        href: "/products",
+        description: "All the products we have to offer.",
+        items: [],
+      },
+      {
+        title: "Build a Board",
+        href: "/build-a-board",
+        description: "Build your own custom skateboard.",
+        items: [],
+      },
+      {
+        title: "Blog",
+        href: "/blog",
+        description: "Read our latest blog posts.",
+        items: [],
+      },
+    ],
+  },
+];
+
 export default function Header({}: Props) {
+  const data = useStaticQuery(graphql`
+    query CategoriesQuery {
+      woocommerce {
+        categories {
+          nodes {
+            databaseId
+            name
+            slug
+          }
+        }
+      }
+    }
+  `);
+
+  console.log(data);
+
   return (
     // <header className="container relative flex items-center justify-between flex-nowrap">
     //   <h1>GOGOBUY 網路商店</h1>
@@ -20,13 +76,13 @@ export default function Header({}: Props) {
     //   </div>
     // </header>
     <header className="sticky top-0 z-50 w-full border-b bg-background">
-      <div className="container flex h-16 items-center">
+      <div className="container flex items-center h-16">
         <MainNav items={siteConfig.mainNav} />
         <MobileNav
           mainNavItems={siteConfig.mainNav}
           sidebarNavItems={dashboardConfig.sidebarNav}
         />
-        <div className="flex flex-1 items-center justify-end space-x-4">
+        <div className="flex items-center justify-end flex-1 space-x-4">
           <nav className="flex items-center space-x-2">
             <ProductsCombobox />
             <CartSheet />
@@ -35,9 +91,9 @@ export default function Header({}: Props) {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="secondary"
-                    className="relative h-8 w-8 rounded-full"
+                    className="relative w-8 h-8 rounded-full"
                   >
-                    <Avatar className="h-8 w-8">
+                    <Avatar className="w-8 h-8">
                       <AvatarImage
                         src={user.imageUrl}
                         alt={user.username ?? ""}
@@ -62,7 +118,7 @@ export default function Header({}: Props) {
                     <DropdownMenuItem asChild>
                       <Link href="/dashboard/account">
                         <Icons.user
-                          className="mr-2 h-4 w-4"
+                          className="w-4 h-4 mr-2"
                           aria-hidden="true"
                         />
                         Account
@@ -72,7 +128,7 @@ export default function Header({}: Props) {
                     <DropdownMenuItem asChild>
                       <Link href="/dashboard/stores">
                         <Icons.terminal
-                          className="mr-2 h-4 w-4"
+                          className="w-4 h-4 mr-2"
                           aria-hidden="true"
                         />
                         Dashboard
@@ -82,7 +138,7 @@ export default function Header({}: Props) {
                     <DropdownMenuItem asChild disabled>
                       <Link href="/dashboard/settings">
                         <Icons.settings
-                          className="mr-2 h-4 w-4"
+                          className="w-4 h-4 mr-2"
                           aria-hidden="true"
                         />
                         Settings
@@ -94,7 +150,7 @@ export default function Header({}: Props) {
                   <DropdownMenuItem asChild>
                     <Link href="/signout">
                       <Icons.logout
-                        className="mr-2 h-4 w-4"
+                        className="w-4 h-4 mr-2"
                         aria-hidden="true"
                       />
                       Log out

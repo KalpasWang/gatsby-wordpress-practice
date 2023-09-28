@@ -26,11 +26,11 @@ export type NavItem = {
 };
 
 export type NavItemWithChildren = NavItem & {
-  children: NavItemWithChildren[];
+  items: NavItemWithChildren[];
 };
 
 export type NavItemWithOptionalChildren = NavItem & {
-  children?: NavItemWithChildren[];
+  items?: NavItemWithChildren[];
 };
 
 export type MainNavItem = NavItemWithOptionalChildren;
