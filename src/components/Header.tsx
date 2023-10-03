@@ -1,6 +1,6 @@
-import { MainNavItem } from "@/types";
-import { Link, graphql, useStaticQuery } from "gatsby";
 import React from "react";
+import { Link, graphql, useStaticQuery } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
@@ -14,6 +14,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Icons } from "./Icons";
+import MainNav from "./MainNav";
+import { HeaderQueryData, MainNavItem } from "@/types";
 
 type Props = {};
 
@@ -44,8 +46,14 @@ const mainNavItems: MainNavItem[] = [
 ];
 
 export default function Header({}: Props) {
-  const data = useStaticQuery(graphql`
-    query CategoriesQuery {
+  const data: HeaderQueryData = useStaticQuery(graphql`
+    query HeaderQuery {
+      site {
+        siteMetadata {
+          title
+          subtitle
+        }
+      }
       woocommerce {
         productCategories(where: { exclude: 21 }) {
           nodes {
@@ -66,16 +74,24 @@ export default function Header({}: Props) {
     }
   `);
 
-  console.log(data);
+  const { site, woocommerce } = data;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background">
       <div className="container flex items-center h-16">
-        <Link to="/" className="flex items-center space-x-2">
-          <Icons.logo className="w-6 h-6" aria-hidden="true" />
-          <span className="inline-block font-bold">gogobuy</span>
-          <span className="sr-only">Home</span>
-        </Link>
+        <div className="flex gap-6">
+          <Link to="/" className="flex items-center space-x-2">
+            <StaticImage
+              src="../images/logo.png"
+              alt={site.siteMetadata.title}
+              width={112}
+            />
+            <span className="inline-block font-bold">
+              {site.siteMetadata.subtitle}
+            </span>
+          </Link>
+          <MainNav items={mainNavItems} />
+        </div>
         <div className="flex items-center justify-end flex-1 space-x-4"></div>
       </div>
     </header>

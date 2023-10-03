@@ -9,8 +9,9 @@ const env = cleanEnv(process.env, {
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `gogobuy`,
+    subtitle: `購物網`,
     siteUrl: `https://gogobuy.vercel.app`,
-    description: `A GatsbyJS starter for WooCommerce`,
+    description: `最好的 3C 購物網`,
     links: {
       github: "https://github.com/gogobuy/gatsby-woocommerce",
       twitter: "https://twitter.com/gogobuy",

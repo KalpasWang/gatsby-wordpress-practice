@@ -15,6 +15,32 @@ export type Product = {
   price: number;
 };
 
+export type HeaderQueryData = {
+  site: {
+    siteMetadata: {
+      title: string;
+      subtitle: string;
+    };
+  };
+  woocommerce: {
+    productCategories: {
+      nodes: Array<{
+        databaseId: number;
+        name: string;
+        slug: string;
+        children: {
+          nodes: Array<{
+            name: string;
+            databaseId: number;
+            slug: string;
+          }>;
+        };
+        parentId?: string;
+      }>;
+    };
+  };
+};
+
 export type NavItem = {
   title: string;
   href?: string;
