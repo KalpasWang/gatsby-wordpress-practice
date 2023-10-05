@@ -43,6 +43,126 @@ const mainNavItems: MainNavItem[] = [
       },
     ],
   },
+  {
+    title: "手機",
+    href: "/phones",
+    items: [
+      {
+        title: "Apple",
+        href: "/phones/apple",
+        description: "iPhone 系列",
+        items: [],
+      },
+      {
+        title: "Samsung",
+        href: "/phones/samsung",
+        description: "Galaxy Z Fold 系列, Galaxy S 系列...",
+        items: [],
+      },
+      {
+        title: "ASUS",
+        href: "/phones/asus",
+        description: "Zenfone 系列, ROG Phone 系列...",
+        items: [],
+      },
+      {
+        title: "小米",
+        href: "/phones/xiaomi",
+        description: "Xiaomi 系列, Redmi 系列...",
+        items: [],
+      },
+    ],
+  },
+  {
+    title: "平板",
+    href: "/tablets",
+    items: [
+      {
+        title: "Apple",
+        href: "/phones/apple",
+        description: "iPhone 系列",
+        items: [],
+      },
+      {
+        title: "Samsung",
+        href: "/phones/samsung",
+        description: "Galaxy Z Fold 系列, Galaxy S 系列...",
+        items: [],
+      },
+      {
+        title: "ASUS",
+        href: "/phones/asus",
+        description: "Zenfone 系列, ROG Phone 系列...",
+        items: [],
+      },
+      {
+        title: "小米",
+        href: "/phones/xiaomi",
+        description: "Xiaomi 系列, Redmi 系列...",
+        items: [],
+      },
+    ],
+  },
+  {
+    title: "電腦",
+    href: "/computers",
+    items: [
+      {
+        title: "Apple",
+        href: "/phones/apple",
+        description: "iPhone 系列",
+        items: [],
+      },
+      {
+        title: "Samsung",
+        href: "/phones/samsung",
+        description: "Galaxy Z Fold 系列, Galaxy S 系列...",
+        items: [],
+      },
+      {
+        title: "ASUS",
+        href: "/phones/asus",
+        description: "Zenfone 系列, ROG Phone 系列...",
+        items: [],
+      },
+      {
+        title: "小米",
+        href: "/phones/xiaomi",
+        description: "Xiaomi 系列, Redmi 系列...",
+        items: [],
+      },
+    ],
+  },
+  {
+    title: "配件",
+    href: "/accessories",
+    items: [
+      {
+        title: "Apple",
+        href: "/phones/apple",
+        description: "iPhone 系列",
+        items: [],
+      },
+      {
+        title: "Samsung",
+        href: "/phones/samsung",
+        description: "Galaxy Z Fold 系列, Galaxy S 系列...",
+        items: [],
+      },
+      {
+        title: "ASUS",
+        href: "/phones/asus",
+        description: "Zenfone 系列, ROG Phone 系列...",
+        items: [],
+      },
+      {
+        title: "小米",
+        href: "/phones/xiaomi",
+        description: "Xiaomi 系列, Redmi 系列...",
+        items: [],
+      },
+    ],
+  },
 ];
 
 export default function Header({}: Props) {
