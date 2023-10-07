@@ -174,23 +174,23 @@ export default function Header({}: Props) {
           subtitle
         }
       }
-      woocommerce {
-        productCategories(where: { exclude: 21 }) {
-          nodes {
-            databaseId
-            name
-            slug
-            children {
-              nodes {
-                name
-                databaseId
-                slug
-              }
-            }
-            parentId
-          }
-        }
-      }
+      # woocommerce {
+      #   productCategories(where: { exclude: 21 }) {
+      #     nodes {
+      #       databaseId
+      #       name
+      #       slug
+      #       children {
+      #         nodes {
+      #           name
+      #           databaseId
+      #           slug
+      #         }
+      #       }
+      #       parentId
+      #     }
+      #   }
+      # }
     }
   `);
 
