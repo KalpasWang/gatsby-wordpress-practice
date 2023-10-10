@@ -15,6 +15,15 @@ export type Product = {
   price: number;
 };
 
+export type TitleQueryData = {
+  site: {
+    siteMetadata: {
+      title: string;
+      subtitle: string;
+    };
+  };
+};
+
 export type HeaderQueryData = {
   site: {
     siteMetadata: {

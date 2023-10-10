@@ -16,6 +16,7 @@ import {
 import { Icons } from "./Icons";
 import MainNav from "./MainNav";
 import { HeaderQueryData, MainNavItem } from "@/types";
+import Logo from "./Logo";
 
 type Props = {};
 
@@ -200,16 +201,7 @@ export default function Header({}: Props) {
     <header className="sticky top-0 z-50 w-full border-b bg-background">
       <div className="container flex items-center h-16">
         <div className="flex gap-6">
-          <Link to="/" className="flex items-center space-x-2">
-            <StaticImage
-              src="../images/logo.png"
-              alt={site.siteMetadata.title}
-              width={112}
-            />
-            <span className="inline-block font-bold">
-              {site.siteMetadata.subtitle}
-            </span>
-          </Link>
+          <Logo />
           <MainNav items={mainNavItems} />
         </div>
         <div className="flex items-center justify-end flex-1 space-x-4"></div>
